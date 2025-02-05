@@ -2,11 +2,60 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+              "-S",
+              "${HOME}/pico/erling-midi/",
+              "-B",
+              "${HOME}/pico/erling-midi/build"
+            ],
+            "options": {
+              "shell": {
+                "executable": "wsl.exe",
+                "args": []
+              }
+            },
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            },
+            "problemMatcher": []
+          },
+          {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+              "--build",
+              "${HOME}/pico/erling-midi/build"
+            ],
+            "options": {
+              "shell": {
+                "executable": "wsl.exe",
+                "args": []
+              }
+            },
+            "dependsOn": "configure",
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            },
+            "problemMatcher": []
+          },
+            {
             "label": "Compile Project",
             "type": "process",
             "isBuildCommand": true,
-            "command": "${userHome}/.pico-sdk/ninja/v1.12.1/ninja",
+            "command": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
             "args": ["-C", "${workspaceFolder}/build"],
+            "options": {
+              "shell": {
+                "executable": "wsl.exe",
+                "args": []
+              }
+            },
             "group": "build",
             "presentation": {
                 "reveal": "always",

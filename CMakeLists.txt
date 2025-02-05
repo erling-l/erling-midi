@@ -1,6 +1,6 @@
 # Generated Cmake Pico project file
-
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.22)
+set(PICO_SDK_PATH ~/pico/pico-sdk)
 # Pull in SDK (must be before project)
 include(pico_sdk_import.cmake)
 # include(pico_extras_import_optional.cmake)
